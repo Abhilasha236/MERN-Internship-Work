@@ -63,6 +63,12 @@ function startMatch(){
         scoreDisplay.textContent = score
         time = 6
         message.textContent = "Correct"
+        wordInput.style.backgroundColor = "#d1ffae" 
+
+        setTimeout(() => {
+            wordInput.style.backgroundColor = "white"
+        }, 1000)
+
     }else{
     message.textContent = "InCorrect"
     }
@@ -73,11 +79,15 @@ function countdown(){
     timeDisplay.textContent = time
     if(time==0)  {
         message.textContent = "Game Over!!!"
+        wordInput.style.backgroundColor = "#ffc1ae" 
+        setTimeout(() => {
+            wordInput.style.backgroundColor = "white"
+        }, 1000) 
         score = 0
         scoreDisplay.textContent = score
         setTimeout(() => {
             window.location.reload();  // page refresh karega
-        }, 1000);  // 2000 ms = 2 seconds
+        }, 2000);  // 2000 ms = 2 seconds
     }
 
 
