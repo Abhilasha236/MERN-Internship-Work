@@ -29,12 +29,12 @@ function addBookToStorage(title, author, isbn) {
     localStorage.setItem("books", JSON.stringify(books))
 }
 
-function clearAllFields() {
-    document.querySelector("#title").value = null
-    document.querySelector("#author").value = null
-    document.querySelector("#isbn").value = null
-
+function clearAllFields(prefix = "") {
+    document.querySelector(`#${prefix}title`).value = null;
+    document.querySelector(`#${prefix}author`).value = null;
+    document.querySelector(`#${prefix}isbn`).value = null;
 }
+
 
 
 function showAlert(msg, className) {
@@ -175,7 +175,15 @@ document.getElementById("save-update").addEventListener("click", function () {
         showAlert("Book Updated Successfully", "success");
         document.getElementById("update-modal").style.display = "none";
     }
-    document.getElementById("update-isbn").value = "";
-    document.getElementById("update-title").value = "";
-    document.getElementById("update-author").value = "";
+
+    clearAllFields("update-")
+    // document.getElementById("update-isbn").value = "";
+    // document.getElementById("update-title").value = "";
+    // document.getElementById("update-author").value = "";
 });
+
+document.getElementById("close-modal").addEventListener("click", function () {
+    document.getElementById("update-modal").style.display = "none";
+    clearAllFields("update-")
+});
+

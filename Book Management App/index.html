@@ -16,6 +16,34 @@
             background-color: black;
             color: white;
         }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+
+        /* Optional: make modal white box relative so close-btn is positioned properly */
+        #update-modal>div {
+            position: relative;
+        }
+        #book-form {
+            background-color: #4b3b2b;
+            padding: 20px;       
+        }
+        tr{
+            background-color: #333333;
+        }
+       
     </style>
 </head>
 
@@ -39,8 +67,9 @@
                 <input type="text" id="isbn" class="form-control">
             </div>
             <input type="submit" value="Add Book" class="btn btn-primary btn-block">
-            <button id="update-btn" class="btn btn-warning btn-block mt-2" style="display: none;">Update Book</button>
+            <button id="update-btn" type="button" class="btn btn-warning btn-block mt-2" style="display: none;">Update Book</button>
         </form>
+       
         <table class="table table-striped mt-5">
             <thead>
                 <tr>
@@ -56,6 +85,7 @@
     <div id="update-modal"
         style="display:none; background: rgba(0,0,0,0.8); position: fixed; top:0; left:0; right:0; bottom:0; z-index:999; align-items:center; justify-content:center;">
         <div style="background:white; padding:20px; border-radius:10px; width:300px;">
+            <span id="close-modal" class="close-btn">&times;</span> <!--Cross Button -->
             <h5>Update Book</h5>
             <input type="text" id="update-isbn" class="form-control mb-2" placeholder="Enter ISBN to Update">
             <input type="text" id="update-title" class="form-control mb-2" placeholder="New Title">
